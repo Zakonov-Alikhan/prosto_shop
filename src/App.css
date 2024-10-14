@@ -1,0 +1,210 @@
+/*ОБНУЛЕНИЕ СТИЛЕЙ - НАЧАЛО*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*ОБНУЛЕНИЕ СТИЛЕЙ - КОНЕЦ*/
+
+.App {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 200px 1fr 200px;
+}
+
+header,
+footer,
+main {
+  width: 100%;
+  grid-column: 2 / span 4;
+  grid-row: 1 span;
+}
+header nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 100px;
+  gap: 0 20px;
+}
+
+nav a,
+nav a img {
+  width: 100%;
+  padding: 5px 0;
+}
+
+#search_container,
+#siteButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+#search_container {
+  grid-column: 2 span;
+  position: relative;
+}
+.SearchSvg {
+  position: absolute;
+  right: 15px;
+  width: 16px;
+  height: 16px;
+}
+
+#siteButtons {
+  justify-content: start;
+  gap: 20px;
+}
+
+.CartSvg,
+.UserSvg,
+.PhoneSvg,
+.MailSvg {
+  width: 32px;
+  height: 32px;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  border-top: 1px solid #b2b2b2;
+  font-size: 18px;
+  gap: 45px;
+}
+
+.footerLogo,
+.footerLogo a img {
+  width: 100%;
+  padding: 5px 0;
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+}
+.footerSection a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  padding-top: 5px;
+}
