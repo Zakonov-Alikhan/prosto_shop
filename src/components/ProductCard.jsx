@@ -1,5 +1,9 @@
 import { useState } from "react";
 import defaultProductImg from "../img/defaultProductImg.png";
+import Button from "./UI/button/Button";
+import A from "./UI/a/A";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductCard({
   title = "Product title",
@@ -27,10 +31,19 @@ export default function ProductCard({
       </div>
 
       <div className="productDescription">
-        <h3>{title}</h3>
-        <div className="">{category}</div>
-        <div className="price">{price + "$"}</div>
-        <button>Buy</button>
+        <h3>
+          <A
+            href="https://www.youtube.com/watch?v=qRciIvSZTnA&list=LL&index=98"
+            className="cardLink"
+          >
+            {title}
+          </A>
+        </h3>
+        <div className="productCategory">{category}</div>
+        <div className="productPrice">{price + "$"}</div>
+        <Button>
+          <FontAwesomeIcon icon={faCartShopping} className="CartSvg" />
+        </Button>
       </div>
     </div>
   );

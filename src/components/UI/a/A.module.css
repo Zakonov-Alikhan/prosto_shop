@@ -1,0 +1,10 @@
+.A {
+  text-decoration: underline 2px;
+  color: #ff9389;
+}
+
+.A::after {
+  content: "";
+  position: absolute;
+  inset: 0; /*растягиваем по максимуму*/
+}
