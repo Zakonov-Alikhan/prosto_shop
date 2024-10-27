@@ -186,6 +186,13 @@ nav a img {
   height: 32px;
 }
 
+.catalogHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0px 65px 35px;
+}
+
 h1 {
   font-family: "Montserrat", serif;
   font-weight: 400;
@@ -204,7 +211,7 @@ h1 {
 .productCard {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-self: center;
   width: 350px;
   /* border: 1px solid #b2b2b2; */
   border-radius: 10px;
@@ -275,6 +282,32 @@ h1 {
 button {
   cursor: pointer;
   position: relative;
+}
+
+.empty-state {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 400px;
+  animation: empty-state-show 0.5s;
+}
+
+/* Показываем элемент с анимацией */
+@keyframes empty-state-show {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 footer {
