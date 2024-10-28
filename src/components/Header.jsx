@@ -1,6 +1,6 @@
 import Input from "./UI/input/Input";
 import logo from "../img/prosto-shop-logo.png";
-export default function Header() {
+export default function Header({ searchQuery, setSearchQuery }) {
   return (
     <header>
       <nav>
@@ -8,7 +8,7 @@ export default function Header() {
           <img src={logo} alt="Prosto Shop" />
         </a>
         <div id="search_container">
-          <Input />
+          <Input searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
           <svg
             className="SearchSvg"
             xmlns="http://www.w3.org/2000/svg"

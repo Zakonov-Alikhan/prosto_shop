@@ -218,6 +218,7 @@ h1 {
   font-family: "Montserrat", serif;
   box-shadow: 0px 15px 15px #b2b2b2;
   position: relative;
+  animation: empty-state-show 0.5s;
 }
 
 .productCard:hover {

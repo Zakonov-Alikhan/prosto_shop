@@ -3,21 +3,34 @@ import products from "../products";
 import Select from "./UI/select/Select";
 import { useMemo, useState } from "react";
 
-export default function Catalog() {
+export default function Catalog({ searchQuery }) {
   const [productsList, setProductsList] = useState([...products]);
   const [filter, setFilter] = useState("No filters");
 
+  const categoryList = [
+    "No filters",
+    "Electronics",
+    "Sports",
+    "Home Appliances",
+    "Clothing",
+  ];
+
   const SortedProductList = useMemo(() => {
     if (filter && filter === "No filters") {
-      return renderProductCard(productsList);
+      return productsList;
     }
     if (filter) {
-      const sortedProductsList = productsList.filter((product) =>
-        product.category.includes(filter)
+      return productsList.filter((product) =>
+        product.category.toLowerCase().includes(filter.toLowerCase())
       );
-      return renderProductCard(sortedProductsList);
     }
   }, [filter, productsList]);
+
+  const SearchedAndSortedProductList = useMemo(() => {
+    return SortedProductList.filter((product) =>
+      product.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery, SortedProductList]);
 
   function renderProductCard(productsList = []) {
     return productsList.map((product) => toHTML(product));
@@ -35,14 +48,6 @@ export default function Catalog() {
     );
   }
 
-  const categoryList = [
-    "No filters",
-    "Electronics",
-    "Sports",
-    "Home Appliances",
-    "Clothing",
-  ];
-
   function filterRender(sort) {
     return setFilter(sort);
   }
@@ -59,8 +64,10 @@ export default function Catalog() {
         ></Select>
       </div>
 
-      {SortedProductList.length ? (
-        <div className="productList">{SortedProductList}</div>
+      {SearchedAndSortedProductList.length ? (
+        <div className="productList">
+          {renderProductCard(SearchedAndSortedProductList)}
+        </div>
       ) : (
         <div className="empty-state">No products found.</div>
       )}

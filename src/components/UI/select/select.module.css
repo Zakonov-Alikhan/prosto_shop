@@ -4,9 +4,11 @@
   align-self: center;
   position: relative;
   height: 50%;
+  width: 16%;
 }
 
 .Select select {
+  white-space: nowrap;
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -17,6 +19,7 @@
   cursor: pointer;
   appearance: none; /* Убираем стандартный стиль браузера */
   z-index: 100;
+  text-overflow: ellipsis;
 }
 
 .Select select:focus {
