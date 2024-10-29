@@ -1,12 +1,8 @@
 import ProductCard from "./ProductCard";
-import products from "../products";
 import Select from "./UI/select/Select";
 import { useMemo, useState } from "react";
 
-export default function Catalog({ searchQuery }) {
-  const [productsList, setProductsList] = useState([...products]);
-  const [filter, setFilter] = useState("No filters");
-
+export default function Catalog({ productsList, filter, setFilter }) {
   const categoryList = [
     "No filters",
     "Electronics",
@@ -15,16 +11,19 @@ export default function Catalog({ searchQuery }) {
     "Clothing",
   ];
 
+  const filterSort = filter.sort;
+  const searchQuery = filter.searchQuery;
+
   const SortedProductList = useMemo(() => {
-    if (filter && filter === "No filters") {
+    if (filterSort && filterSort === "No filters") {
       return productsList;
     }
-    if (filter) {
+    if (filterSort) {
       return productsList.filter((product) =>
-        product.category.toLowerCase().includes(filter.toLowerCase())
+        product.category.toLowerCase().includes(filterSort.toLowerCase())
       );
     }
-  }, [filter, productsList]);
+  }, [filterSort, productsList]);
 
   const SearchedAndSortedProductList = useMemo(() => {
     return SortedProductList.filter((product) =>
@@ -49,7 +48,7 @@ export default function Catalog({ searchQuery }) {
   }
 
   function filterRender(sort) {
-    return setFilter(sort);
+    return setFilter({ ...filter, sort: sort });
   }
 
   return (
@@ -59,7 +58,7 @@ export default function Catalog({ searchQuery }) {
         <Select
           defaultValue="Filters"
           optionList={categoryList}
-          value={filter}
+          value={filterSort}
           onChange={filterRender}
         ></Select>
       </div>

@@ -1,14 +1,14 @@
 import classes from "./input.module.css";
 
-export default function Input({ searchQuery, setSearchQuery }) {
+export default function Input({ filter, setFilter }) {
   return (
     <input
       type="text"
       className={classes.Input}
       placeholder="Search"
-      value={searchQuery}
+      value={filter.searchQuery}
       onChange={(event) => {
-        setSearchQuery(event.target.value);
+        setFilter({ ...filter, searchQuery: event.target.value });
       }}
     />
   );
