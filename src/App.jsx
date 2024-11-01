@@ -1,25 +1,33 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import HomePage from "./pages/HomePage";
+import CartPage from "./pages/CartPage";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import products from "./products";
 import { useState } from "react";
-import "./App.css";
-import Catalog from "./components/Catalog";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
 
 function App() {
   const [filter, setFilter] = useState({ searchQuery: "", sort: "No filters" });
-  // const [searchQuery, setSearchQuery] = useState("");
   const [productsList, setProductsList] = useState([...products]);
 
   return (
     <div className="App">
       <Header filter={filter} setFilter={setFilter} />
-      <main>
-        <Catalog
-          filter={filter}
-          setFilter={setFilter}
-          productsList={productsList}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage
+              filter={filter}
+              setFilter={setFilter}
+              productsList={productsList}
+              setProductsList={setProductsList}
+            />
+          }
         />
-      </main>
+        <Route path="/CartPage" element={<CartPage />} />
+      </Routes>
       <Footer />
     </div>
   );

@@ -1,6 +1,6 @@
+import { useProductSearch } from "../hooks/useProducts";
 import ProductCard from "./ProductCard";
 import Select from "./UI/select/Select";
-import { useMemo, useState } from "react";
 
 export default function Catalog({ productsList, filter, setFilter }) {
   const categoryList = [
@@ -14,28 +14,17 @@ export default function Catalog({ productsList, filter, setFilter }) {
   const filterSort = filter.sort;
   const searchQuery = filter.searchQuery;
 
-  const SortedProductList = useMemo(() => {
-    if (filterSort && filterSort === "No filters") {
-      return productsList;
-    }
-    if (filterSort) {
-      return productsList.filter((product) =>
-        product.category.toLowerCase().includes(filterSort.toLowerCase())
-      );
-    }
-  }, [filterSort, productsList]);
-
-  const SearchedAndSortedProductList = useMemo(() => {
-    return SortedProductList.filter((product) =>
-      product.title.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  }, [searchQuery, SortedProductList]);
+  const SearchedAndSortedProductList = useProductSearch(
+    productsList,
+    filterSort,
+    searchQuery
+  );
 
   function renderProductCard(productsList = []) {
-    return productsList.map((product) => toHTML(product));
+    return productsList.map((product) => createProductCard(product));
   }
 
-  function toHTML(product) {
+  function createProductCard(product) {
     return (
       <ProductCard
         title={product.title}
