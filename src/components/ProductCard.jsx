@@ -1,7 +1,8 @@
 import { useState } from "react";
 import defaultProductImg from "../img/defaultProductImg.png";
 import Button from "./UI/button/Button";
-import A from "./UI/a/A";
+// import A from "./UI/a/A";
+import ProductLink from "./UI/productLink/ProductLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
@@ -10,6 +11,7 @@ export default function ProductCard({
   category = "category",
   price = 300,
   img = defaultProductImg,
+  id,
 }) {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -23,7 +25,7 @@ export default function ProductCard({
         {isLoading && <div className="skeleton"></div>}
         <img
           src={img}
-          alt="Product Image"
+          alt="Product"
           loading="lazy"
           onLoad={HideSkeleton}
           className="productImage"
@@ -32,12 +34,7 @@ export default function ProductCard({
 
       <div className="productDescription">
         <h3>
-          <A
-            href="https://www.youtube.com/watch?v=qRciIvSZTnA&list=LL&index=98"
-            className="cardLink"
-          >
-            {title}
-          </A>
+          <ProductLink id={id}>{title}</ProductLink>
         </h3>
         <div className="productCategory">{category}</div>
         <div className="productPrice">{price + "$"}</div>

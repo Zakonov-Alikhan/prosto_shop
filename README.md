@@ -6,6 +6,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `node server/server.js`
+
+Starts the server in development mode.
+The server will run on http://localhost:5000.
+
+The server automatically reflects any code changes.
+You may also see any error messages or logs in the console.
+
 ### `npm start`
 
 Runs the app in the development mode.\

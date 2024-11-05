@@ -1,0 +1,15 @@
+.ProductLink {
+  text-decoration: underline 2px;
+  text-align: start;
+  font-size: 24px;
+  color: #58a6ff;
+  background-color: #00000000;
+  border: none;
+  padding: 0;
+}
+
+.ProductLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}

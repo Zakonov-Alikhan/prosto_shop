@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
 import logo from "../img/prosto-shop-logo.png";
 
-export default function () {
+export default function Footer() {
   return (
     <footer>
       <div className="footerLogo">
-        <a href="#">
+        <Link to={"/"}>
           <img src={logo} alt="Prosto Shop" />
-        </a>
+        </Link>
       </div>
       <div className="footerSection">
         <h2>Contacts</h2>
-        <a href="#">
+        <a href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -27,7 +28,7 @@ export default function () {
           </svg>
           <p>8-800-555-35-35</p>
         </a>
-        <a href="#">
+        <a href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -47,8 +48,8 @@ export default function () {
       </div>
       <div className="footerSection">
         <h2>Частые вопросы</h2>
-        <a href="#">Доставка</a>
-        <a href="#">Обмен и возврат</a>
+        <a href="/">Доставка</a>
+        <a href="/">Обмен и возврат</a>
       </div>
     </footer>
   );

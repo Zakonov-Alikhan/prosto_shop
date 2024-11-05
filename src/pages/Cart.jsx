@@ -1,10 +1,10 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "../App.css";
 // import Catalog from "./components/Catalog";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+// import Footer from "../components/Footer";
+// import Header from "../components/Header";
 
-function CartPage() {
+function cart() {
   //   const [filter, setFilter] = useState({ searchQuery: "", sort: "No filters" });
   //   const [productsList, setProductsList] = useState([...products]);
 
@@ -15,9 +15,9 @@ function CartPage() {
           setFilter={setFilter}
           productsList={productsList}
         /> */}
-      Работа работается, а ты - нет
+      <h1>Работа работается, а ты - нет</h1>
     </main>
   );
 }
 
-export default CartPage;
+export default cart;

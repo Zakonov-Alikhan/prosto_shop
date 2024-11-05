@@ -1,6 +1,6 @@
 import { useProductSearch } from "../hooks/useProducts";
-import ProductCard from "./ProductCard";
-import Select from "./UI/select/Select";
+import ProductCard from "../components/ProductCard";
+import Select from "../components/UI/select/Select";
 
 export default function Catalog({ productsList, filter, setFilter }) {
   const categoryList = [
@@ -27,11 +27,12 @@ export default function Catalog({ productsList, filter, setFilter }) {
   function createProductCard(product) {
     return (
       <ProductCard
+        id={product.id}
         title={product.title}
         category={product.category}
         price={product.price}
         img={product.img}
-        key={product.title + product.price}
+        key={product.id + product.price}
       />
     );
   }
@@ -41,7 +42,7 @@ export default function Catalog({ productsList, filter, setFilter }) {
   }
 
   return (
-    <>
+    <main>
       <div className="catalogHeader">
         <h1>Catalog</h1>
         <Select
@@ -59,6 +60,6 @@ export default function Catalog({ productsList, filter, setFilter }) {
       ) : (
         <div className="empty-state">No products found.</div>
       )}
-    </>
+    </main>
   );
 }
